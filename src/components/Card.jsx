@@ -12,11 +12,9 @@ import { useNavigate } from "react-router-dom";
 export default function SocialProfileSimple({ user }) {
   const navigate = useNavigate();
   const { first_name, last_name, avatar, email, id } = user;
+
   return (
-    <Center
-      key={id}
-      py={6}
-    >
+    <Center key={id} py={6}>
       <Box
         w={"full"}
         boxShadow={"xl"}
@@ -24,28 +22,15 @@ export default function SocialProfileSimple({ user }) {
         p={6}
         textAlign={"center"}
       >
-        <Avatar
-          size={"xl"}
-          src={avatar}
-          alt={"Avatar Alt"}
-          mb={4}
-        />
+        <Avatar size={"xl"} src={avatar} alt={"Avatar Alt"} mb={4} />
         <Heading fontSize={"2xl"}>
           {first_name} {last_name}
         </Heading>
-        <Text
-          fontWeight={600}
-          color={"gray.500"}
-          mb={4}
-        >
+        <Text fontWeight={600} color={"gray.500"} mb={4}>
           <a href={`mailto:${email}`}>@{email}</a>
         </Text>
 
-        <Stack
-          mt={8}
-          direction={"row"}
-          spacing={4}
-        >
+        <Stack mt={8} direction={"row"} spacing={4}>
           <Button
             flex={1}
             fontSize={"sm"}
