@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUserList } from "../utils/axios";
 import SocialProfileSimple from "./Card";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Center, Grid, GridItem, Spinner } from "@chakra-ui/react";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -12,19 +12,28 @@ function UserList() {
     });
   }, []);
   return users.length ? (
-    <>
-      <Grid templateColumns={"repeat(4, 1fr)"} gap={4}>
-        {users.map((user) => {
-          return (
-            <GridItem m={4}>
-              <SocialProfileSimple user={user} />
-            </GridItem>
-          );
-        })}
-      </Grid>
-    </>
+    <Grid
+      templateColumns={{ md: "repeat(4, 1fr)", sm: "repeat(1, 1fr)" }}
+      gap={4}
+    >
+      {users.map((user) => {
+        return (
+          <GridItem m={4}>
+            <SocialProfileSimple user={user} />
+          </GridItem>
+        );
+      })}
+    </Grid>
   ) : (
-    <>not hello</>
+    <Center h="100vh" w="100vw">
+      <Spinner
+        thickness="4px"
+        speed="0.65s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="2xl"
+      />
+    </Center>
   );
 }
 

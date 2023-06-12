@@ -6,7 +6,7 @@ export const getUserList = async () => {
   return response.data.data;
 };
 
-export const getUserDetails = async id => {
+export const getUserDetails = async (id) => {
   const response = await axios.get(`https://reqres.in/api/users/${id}`);
 
   return response.data.data;
